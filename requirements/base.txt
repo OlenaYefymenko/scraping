@@ -14,9 +14,21 @@ idna==3.7
     # via requests
 lxml==5.2.1
     # via -r requirements/base.in
+numpy==1.26.4
+    # via pandas
+pandas==2.2.2
+    # via -r requirements/base.in
+python-dateutil==2.9.0.post0
+    # via pandas
+pytz==2024.1
+    # via pandas
 requests==2.31.0
     # via -r requirements/base.in
+six==1.16.0
+    # via python-dateutil
 soupsieve==2.5
     # via beautifulsoup4
+tzdata==2024.1
+    # via pandas
 urllib3==2.2.1
     # via requests

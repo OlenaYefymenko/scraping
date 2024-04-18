@@ -1,4 +1,5 @@
 import requests
+import pandas
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
@@ -21,13 +22,20 @@ def core_team_data(url):
                 'image': image_src
             }
             team_data.append(core_team_member)
-    print(team_data)
     return team_data
 
 
-core_team_info = core_team_data('https://interaction24.ixda.org/')
-for member in core_team_info:
-    print(member)
-    print(member['image'])
-
+def save_to_csv(scraped_data, filename):
+    df = pandas.DataFrame(scraped_data)
+    df.to_csv(filename, index=False)
     
+
+def save_to_json(scraped_data, filename):
+    df = pandas.DataFrame(scraped_data)
+    df.to_json(filename, orient='records', indent=2)
+
+
+core_team_info = core_team_data('https://interaction24.ixda.org/')
+
+save_to_csv(core_team_info, 'team_data.csv')
+save_to_json(core_team_info, 'team_data.json')
