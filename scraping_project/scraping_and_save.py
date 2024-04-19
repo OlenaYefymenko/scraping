@@ -1,10 +1,9 @@
 """Module for scraping and saving team data from the website."""
-import requests
-import pandas
-from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from google.oauth2.credentials import Credentials
-from googleapiclient.discovery import build
+
+import pandas
+import requests
+from bs4 import BeautifulSoup
 
 
 def core_team_data(url):
@@ -23,7 +22,7 @@ def core_team_data(url):
             core_team_member = {
                 'name': name_element.text.strip(),
                 'role': role_element.text.strip(),
-                'image': image_src
+                'image': image_src,
             }
             team_data.append(core_team_member)
     return team_data
@@ -31,13 +30,11 @@ def core_team_data(url):
 
 def save_to_csv(scraped_data, filename):
     """Save scraped data to a CSV file."""
-    df = pandas.DataFrame(scraped_data)
-    df.to_csv(filename, index=False)
-    
+    df_team_data = pandas.DataFrame(scraped_data)
+    df_team_data.to_csv(filename, index=False)
+
 
 def save_to_json(scraped_data, filename):
     """Save scraped data to a JSON file."""
-    df = pandas.DataFrame(scraped_data)
-    df.to_json(filename, orient='records', indent=2)
-
-
+    df_team_data = pandas.DataFrame(scraped_data)
+    df_team_data.to_json(filename, orient='records', indent=2)
