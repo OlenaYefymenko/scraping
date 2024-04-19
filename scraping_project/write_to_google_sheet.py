@@ -12,8 +12,9 @@ logging.basicConfig(level=logging.INFO)
 # Doesn't work :(
 # CREDENTIALS_FILE = os.environ.get('GOOGLE_CREDENTIALS_FILE')
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# this token isn't valid, it should be changed to another security variant
 CREDENTIALS_FILE = os.path.join(BASE_DIR, 'scraping_project', 'cred',
-                                'client_secret.json')
+                                'client_secret.json')  
 
 
 def create_sheets_service():
