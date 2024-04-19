@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 def core_team_data(url):
     """Scrape team member data from given URL."""
-    http_get_response = requests.get(url)
+    http_get_response = requests.get(url, timeout=10)
     soup = BeautifulSoup(http_get_response.text, 'lxml')
     base_url = url
     team_data = []
