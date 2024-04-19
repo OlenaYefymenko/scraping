@@ -2,3 +2,8 @@ beautifulsoup4
 requests
 lxml
 pandas
+google-api-python-client
+google-auth-oauthlib
+google-auth
+mypy
+pylint
